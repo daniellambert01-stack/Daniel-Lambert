@@ -130,6 +130,31 @@
     d.completed = new Date().toISOString();
     window.saveAssessment(d);
     renderResults(d, rec);
+    sendToCoach(d);
+  }
+
+  // Optionally deliver the answers straight to Daniel's inbox (see formEndpoint in config.js).
+  function sendToCoach(d) {
+    if (!cfg.formEndpoint) return;
+    var status = document.getElementById("res-email-status");
+    var payload = {
+      _subject: "English Roadmap: " + d.name + " — " + cfg.PROGRAMMES[d.programme],
+      name: d.name, email: d.email, role: d.role, company: d.company || "-", industry: d.industry,
+      payment: d.payer, goals: d.goals.join(", "), upcoming: d.event || "-", ready_by: d.timeframe,
+      confidence: "meetings " + d.confidence.meetings + ", presenting " + d.confidence.presenting +
+        ", writing " + d.confidence.writing + ", small talk " + d.confidence.smallTalk,
+      quick_check: d.score + "/8 (" + d.level + ")", recommended: cfg.PROGRAMMES[d.programme],
+      frequency: d.frequency, timezone: d.timezone || "-", availability: d.availability || "-", notes: d.notes || "-",
+      plan_30: d.plan[0].join("; "), plan_60: d.plan[1].join("; "), plan_90: d.plan[2].join("; ")
+    };
+    fetch(cfg.formEndpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      status.innerHTML = "<strong>Your answers have been sent to Daniel.</strong>";
+    }).catch(function () { /* the email button remains as the fallback */ });
   }
 
   function renderResults(d, rec) {

@@ -9,6 +9,14 @@ window.SITE_CONFIG = {
   brand: "Daniel Lambert",
   email: "daniel.lambert01@gmail.com",
 
+  // Shown next to LinkedIn buttons, e.g. "2,400". Leave "" to hide.
+  linkedinFollowers: "",
+
+  // Optional: where English Roadmap answers are sent automatically.
+  // Example (no account needed, confirm once by email): "https://formsubmit.co/ajax/daniel.lambert01@gmail.com"
+  // Leave "" to rely only on the "Email my answers" button.
+  formEndpoint: "",
+
   LINKS: {
     // Step 1 — free 20-minute discovery call (Calendly, Cal.com, etc.)
     discovery: "https://calendly.com/your-handle/discovery-call",
