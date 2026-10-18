@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Assessment — Daniel Lambert Executive English</title>
+  <meta name="description" content="Free 6-minute executive English assessment. Get an estimated level and a coaching programme recommendation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="assessment">
+
+<main>
+  <section class="hero" style="padding-bottom:48px">
+    <div class="container narrow">
+      <span class="label">Step 02 · Level &amp; needs assessment</span>
+      <h1 id="assess-title">Where are you now?</h1>
+      <p class="lead">Five short sections, about six minutes. At the end you'll get an estimated level, a programme recommendation and direct links to book.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container narrow">
+      <form class="panel" id="assessment" novalidate>
+        <div class="progress" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="progress-label" id="progress-label">Section 1 of 5</div>
+
+        <!-- 1. About you -->
+        <fieldset class="form-step active" data-title="About you" style="border:0;padding:0;margin:0">
+          <h2>About you</h2>
+          <div class="row-2">
+            <div><label for="name">Full name</label><input type="text" id="name" name="name" autocomplete="name" required></div>
+            <div><label for="email">Work email</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+          </div>
+          <div class="row-2">
+            <div><label for="role">Job title</label><input type="text" id="role" name="role" placeholder="e.g. Head of Sales" required></div>
+            <div><label for="company">Company <span class="optional">(optional)</span></label><input type="text" id="company" name="company" autocomplete="organization"></div>
+          </div>
+          <div class="row-2">
+            <div>
+              <label for="industry">Industry</label>
+              <select id="industry" name="industry">
+                <option>Finance &amp; banking</option><option>Technology</option><option>Consulting &amp; professional services</option>
+                <option>Manufacturing &amp; engineering</option><option>Pharma &amp; healthcare</option><option>Energy</option>
+                <option>Retail &amp; consumer</option><option>Public sector &amp; NGO</option><option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="payer">Who is paying?</label>
+              <select id="payer" name="payer">
+                <option value="self">I am paying myself</option>
+                <option value="company">My company is paying</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 2. Goals -->
+        <fieldset class="form-step" data-title="Your goals" style="border:0;padding:0;margin:0">
+          <h2>What do you want to improve?</h2>
+          <span class="field-label">Choose all that apply</span>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="goals" value="meetings"> Leading &amp; speaking up in meetings</label>
+            <label class="choice"><input type="checkbox" name="goals" value="presentations"> Presentations &amp; pitches</label>
+            <label class="choice"><input type="checkbox" name="goals" value="negotiation"> Negotiation &amp; persuasion</label>
+            <label class="choice"><input type="checkbox" name="goals" value="writing"> Emails, reports &amp; writing</label>
+            <label class="choice"><input type="checkbox" name="goals" value="networking"> Small talk &amp; networking</label>
+            <label class="choice"><input type="checkbox" name="goals" value="interviews"> Interviews &amp; career moves</label>
+            <label class="choice"><input type="checkbox" name="goals" value="team"> Training for my whole team</label>
+            <label class="choice"><input type="checkbox" name="goals" value="pronunciation"> Pronunciation &amp; clarity</label>
+          </div>
+          <label for="event">Is there a specific moment coming up? <span class="optional">(optional)</span></label>
+          <textarea id="event" name="event" placeholder="e.g. Board presentation in March, final-round interview, new role in London"></textarea>
+          <label for="timeframe">When do you need to be ready?</label>
+          <select id="timeframe" name="timeframe">
+            <option value="urgent">Within 4 weeks</option>
+            <option value="quarter" selected>In the next 3 months</option>
+            <option value="ongoing">No deadline, I want steady improvement</option>
+          </select>
+        </fieldset>
+
+        <!-- 3. Self rating -->
+        <fieldset class="form-step" data-title="Self-assessment" style="border:0;padding:0;margin:0">
+          <h2>How confident do you feel?</h2>
+          <p class="notice">1 = I avoid it · 5 = completely at ease</p>
+          <label for="conf-meetings">Speaking in meetings and calls</label>
+          <select id="conf-meetings" name="confMeetings"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select>
+          <label for="conf-present">Presenting to senior audiences</label>
+          <select id="conf-present" name="confPresent"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select>
+          <label for="conf-writing">Writing emails and documents</label>
+          <select id="conf-writing" name="confWriting"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select>
+          <label for="conf-social">Small talk and informal conversation</label>
+          <select id="conf-social" name="confSocial"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select>
+        </fieldset>
+
+        <!-- 4. Quick check -->
+        <fieldset class="form-step" data-title="Business English check" style="border:0;padding:0;margin:0">
+          <h2>Quick business English check</h2>
+          <p class="notice">Eight questions. Don't look anything up. Go with your first instinct.</p>
+          <div id="quiz"></div>
+        </fieldset>
+
+        <!-- 5. Logistics -->
+        <fieldset class="form-step" data-title="Scheduling" style="border:0;padding:0;margin:0">
+          <h2>Fitting it into your diary</h2>
+          <div class="row-2">
+            <div>
+              <label for="frequency">Preferred frequency</label>
+              <select id="frequency" name="frequency">
+                <option>Weekly</option><option>Twice a week</option><option>Fortnightly</option><option>Intensive sprint before an event</option>
+              </select>
+            </div>
+            <div>
+              <label for="timezone">Your time zone</label>
+              <input type="text" id="timezone" name="timezone">
+            </div>
+          </div>
+          <label for="availability">Best times for sessions <span class="optional">(optional)</span></label>
+          <input type="text" id="availability" name="availability" placeholder="e.g. Early mornings before 9:00, Friday afternoons">
+          <label for="notes">Anything else I should know? <span class="optional">(optional)</span></label>
+          <textarea id="notes" name="notes"></textarea>
+        </fieldset>
+
+        <div class="error" id="form-error" role="alert"></div>
+        <div class="form-nav">
+          <button type="button" class="btn btn--outline" id="prev" hidden>← Back</button>
+          <button type="button" class="btn" id="next" style="margin-left:auto">Continue <span class="arrow">→</span></button>
+        </div>
+      </form>
+
+      <!-- Results -->
+      <div class="panel" id="results" hidden>
+        <span class="label">Your results</span>
+        <h2 id="res-hello">Thank you.</h2>
+        <div class="result-box">
+          <span class="label" style="margin-bottom:.4em">Recommended programme</span>
+          <h3 id="res-programme"></h3>
+          <p id="res-why" style="margin:0"></p>
+        </div>
+        <dl class="kv" id="res-summary"></dl>
+
+        <h3 style="margin-top:40px;font-family:var(--serif);font-weight:500;font-size:1.8rem">Your next steps</h3>
+        <ol class="steps" style="margin-top:16px">
+          <li style="grid-template-columns:60px 1fr auto">
+            <span class="step-num">01</span>
+            <p><strong>Send me your answers</strong> so I can prepare for our call.<span class="when">Opens your email app with everything filled in</span></p>
+            <a class="btn btn--sm btn--outline" id="res-email">Email my answers</a>
+          </li>
+          <li style="grid-template-columns:60px 1fr auto">
+            <span class="step-num">02</span>
+            <p><strong>Book your free 20-minute discovery call.</strong><span class="when">Your name and email are prefilled</span></p>
+            <a class="btn btn--sm" data-link="discovery">Book the call <span class="arrow">→</span></a>
+          </li>
+          <li style="grid-template-columns:60px 1fr auto">
+            <span class="step-num">03</span>
+            <p><strong>Already decided?</strong> Go straight to booking and payment.<span class="when">Card payment or company invoice</span></p>
+            <a class="btn btn--sm btn--outline" id="res-book" href="book.html">Book &amp; pay</a>
+          </li>
+        </ol>
+        <p class="notice" style="margin-top:28px">Estimated level is indicative only and is confirmed on the discovery call. <a href="#" id="restart">Start again</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/assessment.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book &amp; Pay — Daniel Lambert Executive English</title>
+  <meta name="description" content="Book your executive English coaching sessions and pay securely by card or company invoice.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="book">
+
+<main>
+  <section class="hero" style="padding-bottom:48px">
+    <div class="container">
+      <span class="label">Step 04 · Book &amp; pay</span>
+      <h1>Lock in your sessions.</h1>
+      <p class="lead" id="book-intro">Choose your programme, pick your times in the calendar, then pay securely by card. If your company is paying, request an invoice instead.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <ol class="steps" id="book-list">
+        <li data-programme="executive">
+          <span class="step-num">01</span>
+          <h3>1:1 Executive Coaching</h3>
+          <p><span data-price="executive"></span><span class="when">60-min online sessions · weekly or fortnightly</span></p>
+          <div class="btn-row" style="margin:0">
+            <a class="btn btn--sm" data-link="book-executive" data-fallback="contact.html?topic=book-executive">1 · Choose times</a>
+            <a class="btn btn--sm btn--outline" data-link="pay-executive" data-fallback="contact.html?topic=pay-executive">2 · Pay by card</a>
+            <a class="text-link" href="contact.html?topic=invoice-executive">Company invoice</a>
+          </div>
+        </li>
+        <li data-programme="presentation">
+          <span class="step-num">02</span>
+          <h3>Presentation &amp; Pitch Prep</h3>
+          <p><span data-price="presentation"></span><span class="when">Intensive sprint before your event</span></p>
+          <div class="btn-row" style="margin:0">
+            <a class="btn btn--sm" data-link="book-presentation" data-fallback="contact.html?topic=book-presentation">1 · Choose times</a>
+            <a class="btn btn--sm btn--outline" data-link="pay-presentation" data-fallback="contact.html?topic=pay-presentation">2 · Pay by card</a>
+            <a class="text-link" href="contact.html?topic=invoice-presentation">Company invoice</a>
+          </div>
+        </li>
+        <li data-programme="interview">
+          <span class="step-num">03</span>
+          <h3>Interview &amp; Career English</h3>
+          <p><span data-price="interview"></span><span class="when">Mock interviews and feedback</span></p>
+          <div class="btn-row" style="margin:0">
+            <a class="btn btn--sm" data-link="book-interview" data-fallback="contact.html?topic=book-interview">1 · Choose times</a>
+            <a class="btn btn--sm btn--outline" data-link="pay-interview" data-fallback="contact.html?topic=pay-interview">2 · Pay by card</a>
+            <a class="text-link" href="contact.html?topic=invoice-interview">Company invoice</a>
+          </div>
+        </li>
+        <li data-programme="corporate">
+          <span class="step-num">04</span>
+          <h3>Corporate Team Training</h3>
+          <p><span data-price="corporate"></span><span class="when">Training agreement and company invoicing</span></p>
+          <div class="btn-row" style="margin:0">
+            <a class="btn btn--sm" href="contact.html?topic=corporate">Request a proposal</a>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--yellow">
+    <div class="container split">
+      <div>
+        <span class="label">After you book</span>
+        <h2>What happens next.</h2>
+      </div>
+      <ul class="ticks">
+        <li>Calendar invites with a video link arrive automatically</li>
+        <li>Your written coaching plan is confirmed before session one</li>
+        <li>Send any meeting, deck or email you want to work on 24 hours ahead</li>
+        <li>Reschedule free of charge with 24 hours' notice</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="container">
+      <span class="label">Not ready yet?</span>
+      <h2>Start with a conversation instead.</h2>
+      <div class="btn-row">
+        <a class="btn" data-link="discovery">Book a free call <span class="arrow">→</span></a>
+        <a class="btn btn--outline" href="assessment.html">Take the assessment</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Put the chosen programme (from the link or the assessment) first and highlight it.
+  (function () {
+    var a = window.loadAssessment();
+    var chosen = new URLSearchParams(location.search).get("programme") || (a && a.programme);
+    var row = chosen && document.querySelector('#book-list li[data-programme="' + chosen + '"]');
+    if (!row) return;
+    var list = document.getElementById("book-list");
+    list.prepend(row);
+    row.style.background = "var(--yellow)";
+    row.style.padding = "36px 20px";
+    list.querySelectorAll(".step-num").forEach(function (n, i) { n.textContent = String(i + 1).padStart(2, "0"); });
+    document.getElementById("book-intro").textContent =
+      (a && a.name ? a.name.split(" ")[0] + ", your" : "Your") + " selected programme is shown first. Pick your times, then pay by card or request a company invoice.";
+  })();
+</script>
+</body>
+</html>
