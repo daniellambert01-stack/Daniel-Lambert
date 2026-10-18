@@ -12,7 +12,7 @@ Thank you for completing the English Roadmap. I have now reviewed your answers p
 
 Your business-English check indicates an estimated level of {level}. You identified {focus areas} as your priorities, with {upcoming event} ahead. On this basis, I would recommend the {programme} programme.
 
-As a next step, I would like to invite you to a brief 10-minute assessment interview in person. This establishes your baseline (Test 1), against which all progress in the programme is measured. It can take place directly after our complimentary 20-minute discovery call.
+As a next step, I would like to invite you to a brief 10-minute assessment interview online, via Zoom, Microsoft Teams or Google Meet. This establishes your baseline (Test 1), against which all progress in the programme is measured. It can take place directly after our complimentary 20-minute discovery call.
 
 Would {date/time} or {date/time} be convenient? Alternatively, you may select a time here: [discovery call link]
 
