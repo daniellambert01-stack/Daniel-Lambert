@@ -15,7 +15,7 @@ window.SITE_CONFIG = {
   // Optional: where English Roadmap answers are sent automatically.
   // Example (no account needed, confirm once by email): "https://formsubmit.co/ajax/daniel.lambert01@gmail.com"
   // Leave "" to rely only on the "Email my answers" button.
-  formEndpoint: "",
+  formEndpoint: "https://formsubmit.co/ajax/daniel.lambert01@gmail.com",
 
   // Optional automatic reply sent to the client when formEndpoint is set (FormSubmit supports this).
   // Leave "" so that clients only hear from you personally.

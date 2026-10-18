@@ -155,7 +155,7 @@
       body: JSON.stringify(payload)
     }).then(function (r) {
       if (!r.ok) throw new Error(r.status);
-      status.innerHTML = "<strong>Your answers have been sent to Daniel.</strong>";
+      status.innerHTML = "<strong>Your answers have been sent to Daniel.</strong> He will review them personally and reply within one working day.";
     }).catch(function () { /* the email button remains as the fallback */ });
   }
 
