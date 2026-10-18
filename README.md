@@ -26,7 +26,11 @@ A static site with no build step: plain HTML, CSS and JavaScript. Open `index.ht
 7. **Real-world application (weeks 7–12)**.
 8. **Test 3, the final test and progress report**: `assessment.html?review=1`.
 
-## Receiving English Roadmap answers automatically
+## Receiving English Roadmap answers
+
+Answers are sent automatically to the address in `formEndpoint` (FormSubmit). Clients receive no automatic email: review their answers, then reply personally using `docs/reply-template.md`.
+
+### Setting it up
 
 By default, the visitor must click "Email my answers" for their answers to reach you. To receive them automatically, set `formEndpoint` in `js/config.js`. For example, `"https://formsubmit.co/ajax/YOUR-EMAIL"` needs no account: the first submission sends you an activation email, which you confirm once. A Formspree form URL also works.
 
