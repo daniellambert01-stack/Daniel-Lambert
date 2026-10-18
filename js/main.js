@@ -132,7 +132,7 @@
   function reveal() {
     if (!document.documentElement.classList.contains("js")) return;
     var selectors = ".hero h1, .hero .lead, .hero .btn-row, .hero-meta, .section-head, .split > *, .rule-grid, .rule-cell, " +
-      ".offer, .steps li, .strip a, .timeline, .measure-grid > div, .faq details, .ticks li, .cta-band h2";
+      ".offer, .steps li, .strip a, .timeline, .measure-grid > div, .test-grid > div, .table-wrap, .faq details, .ticks li, .cta-band h2";
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
