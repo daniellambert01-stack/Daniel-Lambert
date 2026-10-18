@@ -7,7 +7,7 @@
     { href: "index.html", label: "Home", id: "home" },
     { href: "programmes.html", label: "Programmes", id: "programmes" },
     { href: "process.html", label: "How it works", id: "process" },
-    { href: "assessment.html", label: "Free assessment", id: "assessment" },
+    { href: "assessment.html", label: "Free English Roadmap", id: "assessment" },
     { href: "about.html", label: "About Daniel", id: "about" },
     { href: "contact.html", label: "Contact", id: "contact" }
   ];
@@ -72,7 +72,7 @@
             '<a class="btn btn--sm" data-link="discovery">Book a Call <span class="arrow">→</span></a></div>' +
           '<div><h4>The process</h4><ul>' +
             '<li><a data-link="discovery">01 Discovery call</a></li>' +
-            '<li><a href="assessment.html">02 Assessment</a></li>' +
+            '<li><a href="assessment.html">02 English Roadmap</a></li>' +
             '<li><a href="process.html#plan">03 Your plan</a></li>' +
             '<li><a href="book.html">04 Book &amp; pay</a></li>' +
             '<li><a href="process.html#coaching">05 Coaching</a></li>' +

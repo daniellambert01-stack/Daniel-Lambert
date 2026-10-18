@@ -36,7 +36,7 @@
   if (params.get("programme") === "corporate") form.payer.value = "company";
   if (params.get("review")) {
     document.getElementById("assess-title").textContent = "Progress review";
-    document.querySelector(".hero .label").textContent = "Step 06 · Progress review";
+    document.querySelector(".hero .label").textContent = "Step 06 · Progress review · Refresh your Roadmap";
   }
   try { form.timezone.value = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) { /* ignore */ }
   var saved = window.loadAssessment();
@@ -71,6 +71,29 @@
     if (current < steps.length - 1) show(current + 1); else finish();
   });
 
+  // 30/60/90-day actions per goal: build the language, use it for real, perform under pressure.
+  var PLAN = {
+    meetings: ["Build a phrase toolkit for opening, interrupting and summarising", "Chair or co-lead one meeting a week in English and review it", "Lead high-stakes meetings without scripted notes"],
+    presentations: ["Rewrite your next deck's storyline and key lines in clear executive English", "Rehearse it out loud, recorded, with feedback on pace and emphasis", "Deliver it and handle off-script Q&A with confidence"],
+    negotiation: ["Learn the language of proposals, concessions and conditions", "Role-play your next real negotiation, including the hard moments", "Negotiate in English while holding your position and the relationship"],
+    writing: ["Set up templates for your five most frequent email types", "Cut email writing time with shorter, clearer drafts reviewed weekly", "Write reports and updates that senior readers act on first time"],
+    networking: ["Prepare a natural self-introduction and three go-to small-talk topics", "Use them at one event or informal call each week", "Build rapport easily with native speakers in any setting"],
+    interviews: ["Shape your career story and 8–10 core answers in English", "Run mock interviews with detailed feedback", "Walk into the real interview and the offer negotiation fully prepared"],
+    team: ["Survey the team and interview key stakeholders to set priorities", "Run workshops on the team's real meetings, decks and emails", "Embed new habits with follow-up coaching and a progress report"],
+    pronunciation: ["Identify the 3–5 sounds and stress patterns that affect clarity most", "Practise them daily on your own presentation and meeting material", "Speak at a natural pace and be understood first time on every call"]
+  };
+
+  function buildPlan(d) {
+    var focus = d.goals.slice(0, 2);
+    var base = { "B1": "Daily 15-minute listening and shadowing to build fluency", "B2": "Upgrade everyday phrases to more precise, senior-sounding alternatives", "C1": "Polish nuance, tone and diplomacy for senior audiences", "C2": "Fine-tune impact, storytelling and presence" }[d.level.slice(0, 2)];
+    return [0, 1, 2].map(function (i) {
+      var items = focus.map(function (g) { return PLAN[g][i]; });
+      if (i === 0) items.push(base);
+      if (i === 2) items.push("Progress review: refresh your Roadmap and compare with today's results");
+      return items;
+    });
+  }
+
   function level(score) {
     if (score <= 2) return "B1 · Intermediate";
     if (score <= 4) return "B2 · Upper-intermediate";
@@ -103,6 +126,7 @@
     d.level = level(d.score);
     var rec = recommend(d);
     d.programme = rec.id;
+    d.plan = buildPlan(d);
     d.completed = new Date().toISOString();
     window.saveAssessment(d);
     renderResults(d, rec);
@@ -129,6 +153,17 @@
       dl.appendChild(dt); dl.appendChild(dd);
     });
 
+    var planEl = document.getElementById("res-plan");
+    planEl.innerHTML = "";
+    ["First 30 days", "Days 31–60", "Days 61–90"].forEach(function (title, i) {
+      var cell = document.createElement("div");
+      cell.className = "rule-cell";
+      var h = document.createElement("span"); h.className = "label"; h.textContent = title;
+      var ul = document.createElement("ul"); ul.style.cssText = "margin:0;padding-left:1.1em;font-size:1rem";
+      d.plan[i].forEach(function (t) { var li = document.createElement("li"); li.textContent = t; li.style.marginBottom = "8px"; ul.appendChild(li); });
+      cell.appendChild(h); cell.appendChild(ul); planEl.appendChild(cell);
+    });
+
     var body = [
       "Hi Daniel,", "", "Here are my assessment answers ahead of our discovery call.", "",
       "Name: " + d.name, "Email: " + d.email, "Role: " + d.role, "Company: " + (d.company || "-"),
@@ -138,7 +173,9 @@
         ", writing " + d.confidence.writing + ", small talk " + d.confidence.smallTalk,
       "Quick check: " + d.score + "/8 (" + d.level + ")", "Recommended: " + progName, "",
       "Frequency: " + d.frequency, "Time zone: " + (d.timezone || "-"), "Availability: " + (d.availability || "-"),
-      "Notes: " + (d.notes || "-")
+      "Notes: " + (d.notes || "-"), "",
+      "My 30/60/90-day plan:",
+      "30 days: " + d.plan[0].join("; "), "60 days: " + d.plan[1].join("; "), "90 days: " + d.plan[2].join("; ")
     ].join("\n");
     document.getElementById("res-email").href = "mailto:" + cfg.email +
       "?subject=" + encodeURIComponent("Assessment: " + d.name + " — " + progName) + "&body=" + encodeURIComponent(body);
