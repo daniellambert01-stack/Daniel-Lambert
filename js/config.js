@@ -17,6 +17,10 @@ window.SITE_CONFIG = {
   // Leave "" to rely only on the "Email my answers" button.
   formEndpoint: "",
 
+  // Optional automatic reply sent to the client when formEndpoint is set (FormSubmit supports this).
+  // Leave "" so that clients only hear from you personally.
+  autoReply: "",
+
   LINKS: {
     // Step 1 — free 20-minute discovery call (Calendly, Cal.com, etc.)
     discovery: "https://calendly.com/your-handle/discovery-call",
@@ -33,7 +37,7 @@ window.SITE_CONFIG = {
     "pay-interview": "https://buy.stripe.com/your-interview-package",
 
     // Social / profile
-    linkedin: "https://www.linkedin.com/in/your-profile"
+    linkedin: "https://www.linkedin.com/in/daniel-p-lambert-8b853037"
   },
 
   // Indicative prices shown on the programmes page

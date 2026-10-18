@@ -74,7 +74,7 @@
   // 30/60/90-day actions per goal: build the language, use it for real, perform under pressure.
   var PLAN = {
     meetings: ["Build a phrase toolkit for opening, interrupting and summarising", "Chair or co-lead one meeting a week in English and review it", "Lead high-stakes meetings without scripted notes"],
-    presentations: ["Rewrite your next deck's storyline and key lines in clear executive English", "Rehearse it out loud, recorded, with feedback on pace and emphasis", "Deliver it and handle off-script Q&A with confidence"],
+    presentations: ["Rewrite your next deck's storyline and key lines in clear executive English", "Rehearse it out loud with feedback on pace and emphasis", "Deliver it and handle off-script Q&A with confidence"],
     negotiation: ["Learn the language of proposals, concessions and conditions", "Role-play your next real negotiation, including the hard moments", "Negotiate in English while holding your position and the relationship"],
     writing: ["Set up templates for your five most frequent email types", "Cut email writing time with shorter, clearer drafts reviewed weekly", "Write reports and updates that senior readers act on first time"],
     networking: ["Prepare a natural self-introduction and three go-to small-talk topics", "Use them at one event or informal call each week", "Build rapport easily with native speakers in any setting"],
@@ -145,8 +145,10 @@
         ", writing " + d.confidence.writing + ", small talk " + d.confidence.smallTalk,
       quick_check: d.score + "/8 (" + d.level + ")", recommended: cfg.PROGRAMMES[d.programme],
       frequency: d.frequency, timezone: d.timezone || "-", availability: d.availability || "-", notes: d.notes || "-",
-      plan_30: d.plan[0].join("; "), plan_60: d.plan[1].join("; "), plan_90: d.plan[2].join("; ")
+      plan_30: d.plan[0].join("; "), plan_60: d.plan[1].join("; "), plan_90: d.plan[2].join("; "),
+      _template: "table"
     };
+    if (cfg.autoReply) payload._autoresponse = cfg.autoReply;
     fetch(cfg.formEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
