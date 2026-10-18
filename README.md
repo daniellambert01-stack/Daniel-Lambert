@@ -45,6 +45,10 @@ Edit **`js/config.js`**. It is the only file you need to change:
 
 If you leave a link as `""`, the button falls back to the contact page.
 
+## Live site
+
+https://daniellambert01-stack.github.io/Daniel-Lambert/
+
 ## Publish on GitHub Pages
 
 Go to Settings → Pages → Deploy from a branch, and choose this branch with `/ (root)`.
