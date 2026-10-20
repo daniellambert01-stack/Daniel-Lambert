@@ -3,108 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact — Daniel Lambert Executive English</title>
-  <meta name="description" content="Contact Daniel Lambert about executive English coaching, corporate training, invoices or rescheduling.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Novalingua</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://daniellambert01-stack.github.io/novalingua/contact.html">
+  <meta http-equiv="refresh" content="0; url=https://daniellambert01-stack.github.io/novalingua/contact.html">
+  <script>location.replace("https://daniellambert01-stack.github.io/novalingua/contact.html" + location.search + location.hash);</script>
 </head>
-<body data-page="contact">
-
-<main>
-  <section class="hero" style="padding-bottom:48px">
-    <div class="container">
-      <span class="label">Contact</span>
-      <h1>Let's talk.</h1>
-      <p class="lead">Questions, corporate proposals, invoices or rescheduling. Send a message and I'll reply within one working day. For a first conversation, the quickest route is a <a data-link="discovery">free discovery call</a>.</p>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="container narrow">
-      <form class="panel" id="contact-form" novalidate>
-        <div class="row-2">
-          <div><label for="c-name">Name</label><input type="text" id="c-name" autocomplete="name" required></div>
-          <div><label for="c-email">Email</label><input type="email" id="c-email" autocomplete="email" required></div>
-        </div>
-        <div class="row-2">
-          <div><label for="c-company">Company <span class="optional">(optional)</span></label><input type="text" id="c-company" autocomplete="organization"></div>
-          <div>
-            <label for="c-topic">Topic</label>
-            <select id="c-topic">
-              <option value="general">General question</option>
-              <option value="corporate">Corporate team training proposal</option>
-              <option value="invoice">Company invoice for coaching</option>
-              <option value="booking">Help with booking or payment</option>
-              <option value="reschedule">Reschedule a session</option>
-            </select>
-          </div>
-        </div>
-        <div id="corp-fields" hidden>
-          <div class="row-2">
-            <div><label for="c-size">Number of participants</label><input type="text" id="c-size" placeholder="e.g. 6"></div>
-            <div><label for="c-start">Preferred start</label><input type="text" id="c-start" placeholder="e.g. January"></div>
-          </div>
-        </div>
-        <label for="c-message">Message</label>
-        <textarea id="c-message" required></textarea>
-        <div class="error" id="c-error" role="alert"></div>
-        <div class="form-nav">
-          <span class="notice">Opens your email app with the message ready to send.</span>
-          <button type="submit" class="btn">Send message <span class="arrow">→</span></button>
-        </div>
-      </form>
-    </div>
-  </section>
-</main>
-
-<script src="js/config.js"></script>
-<script src="js/main.js"></script>
-<script>
-  (function () {
-    var cfg = window.SITE_CONFIG;
-    var form = document.getElementById("contact-form");
-    var topic = document.getElementById("c-topic");
-    var corp = document.getElementById("corp-fields");
-    var labels = { programme: "", executive: "1:1 Executive Coaching", presentation: "Presentation & Pitch Prep", interview: "Interview & Career English" };
-
-    // Map ?topic= values from process links (e.g. invoice-executive, book-presentation) onto the form.
-    var t = new URLSearchParams(location.search).get("topic") || "";
-    var parts = t.split("-");
-    var msg = document.getElementById("c-message");
-    if (t === "corporate") topic.value = "corporate";
-    else if (t === "reschedule") topic.value = "reschedule";
-    else if (parts[0] === "invoice") { topic.value = "invoice"; msg.value = "I'd like to book " + (labels[parts[1]] || "coaching") + " and my company will pay by invoice. Billing details:\n"; }
-    else if (parts[0] === "book" || parts[0] === "pay") { topic.value = "booking"; msg.value = "I'd like to book " + (labels[parts[1]] || "coaching") + ".\n"; }
-
-    var a = window.loadAssessment();
-    if (a) {
-      form.querySelector("#c-name").value = a.name || "";
-      form.querySelector("#c-email").value = a.email || "";
-      form.querySelector("#c-company").value = a.company || "";
-    }
-
-    function toggle() { corp.hidden = topic.value !== "corporate"; }
-    topic.addEventListener("change", toggle);
-    toggle();
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var err = document.getElementById("c-error");
-      var bad = Array.prototype.find.call(form.querySelectorAll("[required]"), function (el) { return !el.checkValidity(); });
-      if (bad) { err.textContent = "Please complete all required fields."; bad.focus(); return; }
-      err.textContent = "";
-      var v = function (id) { return document.getElementById(id).value.trim(); };
-      var lines = ["Name: " + v("c-name"), "Email: " + v("c-email"), "Company: " + (v("c-company") || "-")];
-      if (topic.value === "corporate") lines.push("Participants: " + (v("c-size") || "-"), "Preferred start: " + (v("c-start") || "-"));
-      lines.push("", v("c-message"));
-      if (a && a.level) lines.push("", "(Assessment: " + a.level + ", recommended " + cfg.PROGRAMMES[a.programme] + ")");
-      location.href = "mailto:" + cfg.email + "?subject=" +
-        encodeURIComponent(topic.options[topic.selectedIndex].text + " — " + v("c-name")) +
-        "&body=" + encodeURIComponent(lines.join("\n"));
-    });
-  })();
-</script>
+<body style="font-family:system-ui,sans-serif;padding:40px">
+  <p>Daniel Lambert Executive English is now part of <a href="https://daniellambert01-stack.github.io/novalingua/contact.html">Novalingua</a>.</p>
 </body>
 </html>
