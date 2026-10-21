@@ -1,7 +1,7 @@
 # Daniel Lambert – Executive English (moved)
 
 This site is now part of **Novalingua** (language coaching · Novalingua AI · Novalingua Executive):
-https://daniellambert01-stack.github.io/novalingua/
+https://daniellambert01-stack.github.io/echaztec/
 
 Every old page forwards to its Novalingua counterpart:
 
