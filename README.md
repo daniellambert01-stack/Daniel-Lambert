@@ -1,9 +1,9 @@
 # Daniel Lambert – Executive English (moved)
 
-This site is now part of **Novalingua** (language coaching · Novalingua AI · Novalingua Executive):
+This site is now part of **Found Fluency** (language coaching · Found Fluency AI · Found Fluency Executive):
 https://daniellambert01-stack.github.io/echaztec/
 
-Every old page forwards to its Novalingua counterpart:
+Every old page forwards to its Found Fluency counterpart:
 
 | Old page | New page |
 |---|---|
