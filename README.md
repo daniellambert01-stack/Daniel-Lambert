@@ -1,7 +1,7 @@
 # Daniel Lambert – Executive English (moved)
 
 This site is now part of **Found Fluency** (language coaching · Found Fluency AI · Found Fluency Executive):
-https://daniellambert01-stack.github.io/echaztec/
+https://www.foundfluency.com/
 
 Every old page forwards to its Found Fluency counterpart:
 
